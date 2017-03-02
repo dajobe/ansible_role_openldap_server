@@ -4,6 +4,8 @@ openldap_server_domain_name: example.com
 
 #This is the password for admin for openldap
 openldap_server_rootpw: passme
+openldap_server_rootpw_salt: YVsqIUIh4U2FwAx
+openldap_hashed_server_rootpw: "{{ openldap_server_rootpw | slappasswd(openldap_server_rootpw_salt) }}"
 
 #The self signed ssl parameters
 openldap_server_common_name: "{{ ansible_hostname }}"
